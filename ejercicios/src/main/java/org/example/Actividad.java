@@ -5,6 +5,7 @@ public class Actividad {
 
     static void main() {
 
+        final double PI = 3.141516;
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("¿Cómo te llamas?: ");
@@ -27,6 +28,7 @@ public class Actividad {
         //opción 2
         long resultado = num1 + num2;
         System.out.println("El resultado es " + resultado);
+
 
 
 
