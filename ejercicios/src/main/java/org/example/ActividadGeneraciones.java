@@ -33,42 +33,42 @@ public class ActividadGeneraciones {
 
         if (seguir){
 
-            if (modo==1){
+            switch(modo){
+                case 1:
+                    // el programa deberá pedir el año de nacimiento de la persona (String).
+                    // Después, el programa debe convertir a entero (int) el valor introducido y comprobar si es un valor válido (año >=1900 y año <= año_actual).
 
-                // el programa deberá pedir el año de nacimiento de la persona (String).
-                // Después, el programa debe convertir a entero (int) el valor introducido y comprobar si es un valor válido (año >=1900 y año <= año_actual).
+                    System.out.println("Introduce tu año de nacimiento: ");
+                    String anyo_nacimiento = teclado.next();
 
-                System.out.println("Introduce tu año de nacimiento: ");
-                String anyo_nacimiento = teclado.next();
+                    try{
+                        anyo_nacimiento_int = Integer.parseInt(anyo_nacimiento);
+                    }catch (NumberFormatException e){
+                        System.out.println("El formato no es numérico.");
+                        return;
+                    }
+                    break;
+                case 2:
+                    int edad = 0;
 
-                try{
-                    anyo_nacimiento_int = Integer.parseInt(anyo_nacimiento);
-                }catch (NumberFormatException e){
-                    System.out.println("El formato no es numérico.");
-                    return;
-                }
+                    System.out.println("Introduce la edad: ");
+                    if (teclado.hasNextInt()){
+                        edad = teclado.nextInt();
+                    }else{
+                        System.out.println("La edad no tiene formato correcto (numérico).");
+                        return;
+                    }
 
-            } else if (modo==2) {
-                int edad = 0;
-
-                System.out.println("Introduce la edad: ");
-                if (teclado.hasNextInt()){
-                    edad = teclado.nextInt();
-                }else{
-                    System.out.println("La edad no tiene formato correcto (numérico).");
-                    return;
-                }
-
-                if (edad>=0){
-                    anyo_nacimiento_int = anyo_actual-edad;
-                }else{
-                    System.out.println("La edad no es correcta.");
-                    return;
-                }
-
-            }else {
-                System.out.println("El modo introducido no es correcto.");
-                return;
+                    if (edad>=0){
+                        anyo_nacimiento_int = anyo_actual-edad;
+                    }else{
+                        System.out.println("La edad no es correcta.");
+                        return;
+                    }
+                    break;
+                default:
+                    System.out.println("El modo introducido no es correcto.");
+                  break;
             }
 
             if (anyo_nacimiento_int>=ANYO_MINIMO && anyo_nacimiento_int<=anyo_actual){
