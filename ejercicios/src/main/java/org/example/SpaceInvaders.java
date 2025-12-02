@@ -40,6 +40,8 @@ public class SpaceInvaders {
             }
         }
 
+        Olivas.noseque();
+
 
 
 
